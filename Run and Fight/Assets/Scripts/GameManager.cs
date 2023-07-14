@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
@@ -23,23 +21,43 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void UpdateGame()
     {
-        if (Score.Instance.score > 50000)
+        if (Score.Instance.score > 25000)
+        {
+            levelGenerator.moveAmount = -75;
+        }
+        else if (Score.Instance.score > 19000)
+        {
+            levelGenerator.moveAmount = -65;
+        }
+        else if (Score.Instance.score > 15000)
+        {
+            levelGenerator.moveAmount = -50;
+        }
+        else if (Score.Instance.score > 13000)
+        {
+            levelGenerator.moveAmount = -40;
+        }
+        else if (Score.Instance.score > 10000)
         {
             levelGenerator.moveAmount = -32;
         }
-        if (Score.Instance.score > 20000)
+        else if (Score.Instance.score > 8000)
+        {
+            levelGenerator.moveAmount = -24;
+        }
+        else if (Score.Instance.score > 6000)
         {
             levelGenerator.moveAmount = -16;
         }
-        if (Score.Instance.score > 10000)
+        else if (Score.Instance.score > 4000)
         {
             levelGenerator.moveAmount = -12;
         }
-        if (Score.Instance.score > 5000)
+        else if (Score.Instance.score > 2000)
         {
             levelGenerator.moveAmount = -10;
         }
-        if (Score.Instance.score > 1000)
+        else if (Score.Instance.score > 800)
         {
             levelGenerator.moveAmount = -8;
         }

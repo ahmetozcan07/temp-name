@@ -2,8 +2,6 @@ using UnityEngine;
 using Lean.Touch;
 using System;
 using UniRx;
-using UnityEditor.Build.Reporting;
-using TMPro;
 
 public class LaneShifting : MonoBehaviour
 {

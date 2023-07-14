@@ -1,8 +1,5 @@
 using Lean.Touch;
-using System.Collections;
-using System.Collections.Generic;
 using UniRx;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class characterJumpAndRun : MonoBehaviour
