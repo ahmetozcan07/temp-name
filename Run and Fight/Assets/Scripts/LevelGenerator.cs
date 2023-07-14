@@ -12,6 +12,7 @@ public class LevelGenerator : MonoBehaviour
     
     [SerializeField] private GameObject startlevel;
 
+    public float moveAmount = -4;
     private CompositeDisposable disposables = new CompositeDisposable();
 
 
@@ -24,15 +25,19 @@ public class LevelGenerator : MonoBehaviour
         int random1 = Random.Range(0, levels.Length);
         int random2 = Random.Range(0, levels.Length);
         int random3 = Random.Range(0, levels.Length);
+        int random4 = Random.Range(0, levels.Length);
 
         GameObject nextLevel1 = Instantiate(levels[random1], transform);
-        nextLevel1.transform.position = new Vector3(0, 0, 20);
+        nextLevel1.transform.position = new Vector3(0, 0, 19.9f);
 
         GameObject nextLevel2 = Instantiate(levels[random2], transform);
-        nextLevel2.transform.position = new Vector3(0, 0, 40);
+        nextLevel2.transform.position = new Vector3(0, 0, 39.8f);
 
         GameObject nextLevel3 = Instantiate(levels[random3], transform);
-        nextLevel3.transform.position = new Vector3(0, 0, 60);
+        nextLevel3.transform.position = new Vector3(0, 0, 59.7f);
+
+        GameObject nextLevel4 = Instantiate(levels[random4], transform);
+        nextLevel4.transform.position = new Vector3(0, 0, 79.6f);
 
         Observable.EveryUpdate().
             Subscribe(_ => GenerateAndMoveLevels())
@@ -41,18 +46,18 @@ public class LevelGenerator : MonoBehaviour
 
     private void GenerateAndMoveLevels()
     {
-        gameObject.transform.position += new Vector3(0, 0, -4 * Time.deltaTime);
+        gameObject.transform.position += new Vector3(0, 0, moveAmount * Time.deltaTime);
 
-        if (transform.position.z <= index - 20)
+        if (transform.position.z <= index - 19.9f)
         {
 
 
             int random4 = Random.Range(0, levels.Length);
 
-            GameObject nextLevel4 = Instantiate(levels[random4], transform);
-            nextLevel4.transform.position = new Vector3(0, 0, 60);
+            GameObject nextLevel5 = Instantiate(levels[random4], transform);
+            nextLevel5.transform.position = new Vector3(0, 0, 79.6f);
 
-            index = index - 20;
+            index = index - 19.9f;
         }
     }
 
